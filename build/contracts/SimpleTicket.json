@@ -1,0 +1,437 @@
+{
+  "contract_name": "SimpleTicket",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ticketPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "seatsToAttendees",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalTicketsSold",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "standard",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getUserTicketCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "withdrawAll",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "purchaseTicket",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalTickets",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "attendeesToSeats",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "inTotalTickets",
+          "type": "uint256"
+        },
+        {
+          "name": "inTicketPrice",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_attendee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "TicketPurchasedEvent",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x60a0604052601060608190527f5449434b4554494e47504f432d302e3100000000000000000000000000000000608090815261003e9160059190610095565b50341561004757fe5b6040516040806105da8339810160405280516020909101515b60008054600160a060020a03191633600160a060020a03161781556004819055600255600182905560038190555b5050610135565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100d657805160ff1916838001178555610103565b82800160010185558215610103579182015b828111156101035782518255916020019190600101906100e8565b5b50610110929150610114565b5090565b61013291905b80821115610110576000815560010161011a565b5090565b90565b610496806101446000396000f3006060604052361561007d5763ffffffff60e060020a6000350416631209b1f6811461007f5780632f30d7eb146100a157806334701db8146100d05780635a3b7e42146100f25780635cc22e9414610182578063853828b6146101a4578063b948348c146101c0578063dd11247e146101df578063f3db581514610201575bfe5b341561008757fe5b61008f61022f565b60408051918252519081900360200190f35b34156100a957fe5b6100b4600435610235565b60408051600160a060020a039092168252519081900360200190f35b34156100d857fe5b61008f610250565b60408051918252519081900360200190f35b34156100fa57fe5b610102610256565b604080516020808252835181830152835191928392908301918501908083838215610148575b80518252602083111561014857601f199092019160209182019101610128565b505050905090810190601f1680156101745780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561018a57fe5b61008f6102e4565b60408051918252519081900360200190f35b6101ac610301565b604080519115158252519081900360200190f35b6101ac60043561035f565b604080519115158252519081900360200190f35b34156101e757fe5b61008f610452565b60408051918252519081900360200190f35b341561020957fe5b61008f600160a060020a0360043516610458565b60408051918252519081900360200190f35b60035481565b600660205260009081526040902054600160a060020a031681565b60025481565b6005805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156102dc5780601f106102b1576101008083540402835291602001916102dc565b820191906000526020600020905b8154815290600101906020018083116102bf57829003601f168201915b505050505081565b600160a060020a0333166000908152600760205260409020545b90565b60008054819033600160a060020a039081169116146103205760006000fd5b50600480546000918290556040519091600160a060020a0333169183156108fc0291849190818181858888f19350505050151561035957fe5b5b5b5090565b600060006000600354840291506001546002548501111580156103825750600084115b801561038d57508134115b15610445575060048054820190556002546001015b83600254016001018110156103e15760008181526006602052604090208054600160a060020a03191633600160a060020a03161790555b6001016103a2565b600160a060020a0333166000818152600760209081526040918290208054880190556002805488019055815187815291517f16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b9281900390910190a26001925061044a565b600092505b5b5050919050565b60015481565b600760205260009081526040902054815600a165627a7a723058206bf8ad1de58d2e19283d20c1f989b84519a318b6bdd73e06df7d0558f57ac8980029",
+  "networks": {
+    "1498507609789": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4cee8603dd57d94a56ee9c202f976bd9fdbacb4e",
+      "updated_at": 1498508336727
+    },
+    "1498508441250": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x8a2eefac2a74d5907fe5a457428e5411f1e72377",
+      "updated_at": 1498508463105
+    },
+    "1498511794445": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xb34a8521f2a9401936578e48219265880bbb8012",
+      "updated_at": 1498511809136
+    },
+    "1498513523275": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x94513baeb385ae728763771c4eae7995175fb916",
+      "updated_at": 1498513564127
+    },
+    "1498514710451": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xcb664b1f366c21bf2e61b3bf68ae1fb31f68bbc8",
+      "updated_at": 1498514717978
+    },
+    "1498515200649": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x035414cd98edce12b0ec6cde082131054be9b5be",
+      "updated_at": 1498515882646
+    },
+    "1498521716109": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x66bc07c97e4ad3e63aa92f5207e056dd5dcf7a28",
+      "updated_at": 1498521882888
+    },
+    "1498522062941": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xe9f155e5c3b045a8edc1adbe39d950607f62776f",
+      "updated_at": 1498587530410
+    },
+    "1498758288951": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x7977bc984b17906fbd3ac89b835fe8428c6ddcbc",
+      "updated_at": 1498758436532
+    },
+    "1499437430587": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x36ab1047e923309ef43c1d7d4f590c85eb2d6611",
+      "updated_at": 1499437455789
+    },
+    "1499962525447": {
+      "events": {
+        "0x16d15f637485a82f6cecf5337bb09bd63cad243edc3508a59a508d7f88c2ff8b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "_attendee",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "TicketPurchasedEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xbe137456fe2952ee078d31ab7071d5620b7e1317",
+      "updated_at": 1499962585128
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1499962585128
+}
